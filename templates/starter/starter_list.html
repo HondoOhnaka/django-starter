@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if object_list %}
+<ol>
+{% for item in object_list %}
+<li><a href="{% url detail_page item.id %}">{{ item.title }}</a> 
+	[<a href="{% url update_page item.id %}">Edit</a>]
+	[<a href="{% url delete_page item.id %}">Delete</a>]
+</li>
+{% endfor %}
+</ol>
+{% else %}
+Nothing here.
+{% endif %}
+<br>
+[<a href="{% url create_page %}">Create</a>]
+
+{% endblock content %}
